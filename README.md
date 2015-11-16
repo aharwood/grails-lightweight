@@ -1,6 +1,8 @@
 grails-lightweight-deploy
 ==================
 
+This is a fork of a plugin originally developed by [Wotif](http://www.wotifgroup.com/).  If you are interested in the original project, please see [here](https://github.com/wotifgroup/grails-lightweight-deploy).
+
 This plugin is intended to produce a lightweight, production-ready, deployable grails application. It embeds jetty, and uses a number of
 the conventions from [Dropwizard](http://dropwizard.codahale.com) that make sense. This includes reading configuration from an externalised yml file,
 auto-instrumenting of controllers with codahale metrics and exposing a secondary port for the AdminServlet.
