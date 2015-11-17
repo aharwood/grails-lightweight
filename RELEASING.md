@@ -13,9 +13,10 @@ For further details on this configuration, see [the grails-release documentation
 # Each release
 
 1. Update `LightweightDeployGrailsPlugin.groovy` to remove "-SNAPSHOT" from the version
-2. Commit the change and tag it with the version (don't push yet)
-3. `./grailsw clean && ./grailsw refresh-dependencies && ./grailsw test-app && ./grailsw maven-deploy --repository=myRepo`
-4. Update `LightweightDeployGrailsPlugin.groovy` to increment the version and add "-SNAPSHOT"
-5. Commit the change and push.
+2. Update `CHANGES.md`
+3. Commit the change and tag it with the version (don't push yet)
+4. `./grailsw clean && ./grailsw refresh-dependencies && ./grailsw test-app && ./grailsw maven-deploy --repository=myRepo`
+5. Update `LightweightDeployGrailsPlugin.groovy` to increment the version and add "-SNAPSHOT"
+6. Commit the change and push.
 
 For further information, see [the documentation for grails maven-deploy](http://grails-plugins.github.io/grails-release/docs/manual/ref/Command%20Line/maven-deploy.html).
