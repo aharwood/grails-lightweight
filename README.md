@@ -7,6 +7,8 @@ This plugin is intended to produce a lightweight, production-ready, deployable g
 the conventions from [Dropwizard](http://dropwizard.codahale.com) that make sense. This includes reading configuration from an externalised yml file,
 auto-instrumenting of controllers with codahale metrics and exposing a secondary port for the AdminServlet.
 
+[![Build Status](https://travis-ci.org/commercehub-oss/grails-lightweight-deploy.svg?branch=master)](https://travis-ci.org/commercehub-oss/grails-lightweight-deploy)
+
 ## Getting Started
 Add the plugin to your BuildConfig:
 ```
