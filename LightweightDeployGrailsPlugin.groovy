@@ -1,4 +1,5 @@
 class LightweightDeployGrailsPlugin {
+    def groupId = "com.commercehub.grails.plugins"
     def version = "0.14.0"
     def grailsVersion = "2.0 > *"
 

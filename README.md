@@ -1,16 +1,16 @@
 grails-lightweight-deploy
 ==================
 
-This is a fork of a plugin originally developed by [Wotif](http://www.wotifgroup.com/).  If you are interested in the original project, please see [here](https://github.com/wotifgroup/grails-lightweight-deploy).
+This is a fork of a plugin originally developed by [Wotif](http://www.wotifgroup.com/).  If you are interested in the original project, please see [here](https://github.com/wotifgroup/grails-lightweight-deploy).  We don't plan on updating this plugin to support Grails 3.x, as similar support is already built in to Grails in that version.
 
 This plugin is intended to produce a lightweight, production-ready, deployable grails application. It embeds jetty, and uses a number of
 the conventions from [Dropwizard](http://dropwizard.codahale.com) that make sense. This includes reading configuration from an externalised yml file,
 auto-instrumenting of controllers with codahale metrics and exposing a secondary port for the AdminServlet.
 
-##Getting Started
+## Getting Started
 Add the plugin to your BuildConfig:
 ```
-compile ":lightweight-deploy:latest"
+compile "com.commercehub.grails.plugins:lightweight-deploy:latest"
 ```
 ideally you should also replace the tomcat plugin with:
 ```
@@ -71,7 +71,7 @@ tail -f ./server.log
 ```
 and you should see your server starting up successfully.
 
-##Configuration
+## Configuration
 Here's a complete sample configuration file, including comments describing the properties:
 ```
 http:
@@ -109,7 +109,7 @@ http:
             #Required if archive is true. The filename pattern for archived files. %d is replaced with the date in yyyy-MM-dd form, and the fact that it ends with .gz indicates the file will be gzipped as it’s archived. Likewise, filename patterns which end in .zip will be filled as they are archived.
             archivedLogFilenamePattern: ./server-access-log-%d.txt
             #The number of archived files to keep.
-            archivedFileCount: 5 
+            archivedFileCount: 5
     gzip:
         #If true, all requests with gzip in their Accept-Content-Encoding headers will have their response entities encoded with gzip.
         enabled: true
@@ -133,7 +133,7 @@ http:
         deflateCompressionLevel: -1
 
 logging:
-    #custom log levels - note that in previous versions loggers used to sit under file property, this will throw an exception now if the config remains after updating to this version 
+    #custom log levels - note that in previous versions loggers used to sit under file property, this will throw an exception now if the config remains after updating to this version
     loggers:
         foo: ERROR
         bar.baz: DEBUG
@@ -154,7 +154,7 @@ logging:
         threshold: ALL
         # the timezone to print dates in
         timeZone: GMT+10
-        # specify a log format for the file log 
+        # specify a log format for the file log
         logFormat: "%-5p [%d{ISO8601,GMT+10}] [%-30thread] %c: %m%n%xEx"
       #Logs to the console.
       - type: console
@@ -174,7 +174,7 @@ jmx:
 workDir: ./work
 ```
 
-##Customised Bootstrapping
+## Customised Bootstrapping
 By default, the server will expose only the content in your grails application. It is possible to perform extra configuration of the Jetty server though. To do this, you need to write a custom Launcher. Here's a basic example:
 ```
 package com.name;
@@ -214,7 +214,7 @@ You can also include specific classes or directories of classes from your applic
 grails.plugin.lightweightdeploy.extraClasses = ["**/Awesome.class", "**/util/**"]
 ```
 
-###Extra configuration on the external or admin connectors
+### Extra configuration on the external or admin connectors
 It is possible, with a custom Launcher, to perform extra configuration on the external or admin connectors. To do so you need to override either of the following methods:
 ```
 protected void configureExternalServlets(WebAppContext context);
@@ -254,7 +254,7 @@ grails prod lightweight --release=123
 Which would produce a name of the form appName-appVersion-date_123. This can be useful to set to the build number from your CI
 server, to make tracking of the build into production easier.
 
-##Metrics
+## Metrics
 lightweight-deploy automatically instruments all controller methods with [Codahale Metrics](http://metrics.codahale.com/). Each Timer is created dynamically
 as requests come in, named as "controllerName.actionName". The metrics are viewable at "http://server:adminPort/metrics".
 
@@ -263,8 +263,8 @@ You can access the MetricRegistry and create your own metrics using:
 grails.plugin.lightweightdeploy.application.metrics.MetricsUtil.getMetricRegistry()
 ```
 
-##License
+## License
 lightweight-deploy is licensed under [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
 
-##Credit
+## Credit
 This plugin uses some code from both the [standalone](http://grails.org/plugin/standalone) plugin by Burt Beckwith and [Dropwizard](http://dropwizard.codahale.com) by Codahale.
