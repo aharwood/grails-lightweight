@@ -1,0 +1,9 @@
+sudo: false
+language: java
+env:
+  global:
+  - TERM=dumb
+script: ./grailsw -non-interactive -plain-output refresh-dependencies && ./grailsw -non-interactive -plain-output test-app && ./grailsw -non-interactive -plain-output package-plugin
+jdk:
+  - oraclejdk7
+  - openjdk7

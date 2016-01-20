@@ -12,23 +12,24 @@ grails.project.dependency.resolution = {
 
     repositories {
         grailsCentral()
+        mavenRepo "https://repo.grails.org/grails/plugins"
         mavenLocal()
         mavenCentral()
     }
     dependencies {
-        compile "com.google.guava:guava:14.0.1",
-                "org.yaml:snakeyaml:1.12",
-                "org.slf4j:slf4j-api:1.7.5",
-                "ch.qos.logback:logback-classic:1.0.13"
+        compile "com.google.guava:guava:16.0.1",
+                "org.yaml:snakeyaml:1.16",
+                "org.slf4j:slf4j-api:1.7.13",
+                "ch.qos.logback:logback-classic:1.1.3"
 
-        runtime "org.slf4j:jul-to-slf4j:1.7.5",
-                "org.slf4j:log4j-over-slf4j:1.7.5",
-                "org.slf4j:jcl-over-slf4j:1.7.5"
+        runtime "org.slf4j:jul-to-slf4j:1.7.13",
+                "org.slf4j:log4j-over-slf4j:1.7.13",
+                "org.slf4j:jcl-over-slf4j:1.7.13"
 
-        compile("com.codahale.metrics:metrics-core:3.0.1",
-                "com.codahale.metrics:metrics-jetty8:3.0.1",
-                "com.codahale.metrics:metrics-servlet:3.0.1",
-                "com.codahale.metrics:metrics-servlets:3.0.1") {
+        compile("com.codahale.metrics:metrics-core:3.0.2",
+                "com.codahale.metrics:metrics-jetty8:3.0.2",
+                "com.codahale.metrics:metrics-servlet:3.0.2",
+                "com.codahale.metrics:metrics-servlets:3.0.2") {
             exclude 'javax.servlet'
             exclude "jetty-server"
         }
